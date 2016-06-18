@@ -1,0 +1,19 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+}
+
+#app {
+    margin-left: 100px;
+}
+
+a {
+    cursor: pointer;
+}
+
+.category-title {
+    font-size: 25px;
+}
