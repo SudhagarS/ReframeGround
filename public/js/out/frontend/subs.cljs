@@ -6,7 +6,7 @@
 (register-sub
   :jobs
   (fn [db]
-    (reaction (:jobs @db))))
+    (reaction (-> @db :jobs vals))))
 
 (register-sub
   :section

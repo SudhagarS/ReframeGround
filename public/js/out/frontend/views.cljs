@@ -48,9 +48,9 @@
                                   nil)}]
           [:span {:class "category-title text-primary"}
                  (str (:title category) " ")])
-       [:a {:class "bg-success"
-            :on-click #(reset! editing true)} "Edit"]
-       (for [opening (:openings category)]
+       [:a.bg-info {:on-click #(reset! editing true)} "Edit"] [:span " "]
+       [:a.bg-danger {:on-click #(dispatch [:remove-category id])} "Remove"]
+       (for [opening (-> category :openings vals)]
          ^{:key (:id opening)} [opening-component opening])
        [opening-compose (:id category)]
        [:hr]])))
@@ -64,7 +64,7 @@
         (fn []
           [:div {:class "category-compose"}
             [:input {:type "text"
-                    :placeholder "category"
+                    :placeholder "new category"
                     :value @val
                     :on-change #(reset! val (-> % .-target .-value))
                     :on-key-down #(case (.-which %)
